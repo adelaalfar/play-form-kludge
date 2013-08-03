@@ -18,11 +18,13 @@
 @inputClass = @{ args.toMap.get('class).getOrElse("") }
 @inputHelp = @{ args.toMap.get('help).getOrElse("") }
 @inputPlaceholder = @{ args.toMap.get('placeholder).getOrElse("") }
+@inputError = @{ args.toMap.get('error).getOrElse("") }
 
-  <div class="control-group">
+  <div class="control-group @if(!inputError.isEmpty) {error}">
     <label class="control-label" for="@field">@field</label>
     <div class="controls">
       <input class="@inputClass" type="@inputType" id="@inputId" name="@inputName" value="@inputValue" placeholder="@inputPlaceholder">
       <p class="help-block">@inputHelp</p>
+      <p class="help-block">@inputError</p>
     </div>
   </div>

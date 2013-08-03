@@ -1,7 +1,6 @@
 package controllers;
 
 import java.util.Map;
-import models.Major;
 import models.Student;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -26,7 +25,8 @@ public class Application extends Controller {
     Student student = Student.makeInstance(formValues);
     // Do something with the data.  Normally we'd save it to the database or whatever.
     System.out.println("Student is: " + student);
-    // Now return something to the client. Let's just render and return the same form data. 
+    // Now return something to the client. Let's just render and return the student instance.
+    // If there are errors, they will be rendered in the form. 
     return ok(index.render(student));
   }
 }

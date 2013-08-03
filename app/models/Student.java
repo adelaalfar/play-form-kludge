@@ -32,24 +32,23 @@ public class Student {
     System.out.println("Form values: " + formValues);
     Student student = new Student();
     // Process Name field
-    if (formValues.containsKey("Name")) {
+    if (formValues.containsKey("Name") && formValues.get("Name")[0].length() > 0) {
       student.setName(formValues.get("Name")[0]);
     }
     else {
-      student.getErrorMap().put("Name", "Required field name is missing.");
+      student.getErrorMap().put("Name", "A name is required.");
     }
     // Process Password field
-    if (formValues.containsKey("Password")) {
+    if (formValues.containsKey("Password") && formValues.get("Password")[0].length() > 0) {
       student.setName(formValues.get("Password")[0]);
     }
     else {
-      student.getErrorMap().put("Password", "Required field name is missing.");
+      student.getErrorMap().put("Password", "A password is required.");
     }
     // Process Hobbies.
     student.hobbies = new ArrayList<Hobby>();
     if (formValues.containsKey("Hobbies[]")) {
       for (String hobbyName : formValues.get("Hobbies[]")) {
-        System.out.println("Adding hobby: " + hobbyName);
         student.hobbies.add(new Hobby(0L, hobbyName));
       }
     }
@@ -89,6 +88,11 @@ public class Student {
    */
   public Map<String, String> getErrorMap() {
     return errorMap;
+  }
+  
+  public String getError(String errorName) {
+    String msg = this.errorMap.get(errorName); 
+    return (msg == null) ? "" : msg;
   }
 
   /**

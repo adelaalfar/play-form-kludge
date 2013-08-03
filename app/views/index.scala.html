@@ -18,7 +18,8 @@
           'value -> student.getName(),
           'class -> "input-xlarge", 
           'placeholder -> "My Name",
-          'help -> "Please enter your first and last name")
+          'help -> "Please enter your first and last name",
+          'error -> student.getError("Name"))
           
         <!-- Password -->
         @bootstrap2InputText("Password",
@@ -27,13 +28,14 @@
           'class -> "input-xlarge",
           'type -> "password", 
           'placeholder -> "Password",        
-          'help -> "Password should be chosen with care.")
+          'help -> "Password should be chosen with care.",
+          'error -> student.getError("Password"))
         
          <!-- Hobbies -->
          @bootstrap2MultipleCheckboxes("Hobbies", 
            Hobby.makeHobbyMap(student), 
            true,  
-           'help -> "Check all hobbies.")
+           'help -> "Check zero or more hobbies.")
          
         <!-- Grade Level -->
         @bootstrap2MultipleRadioButtons("Level", 
@@ -51,7 +53,7 @@
         @bootstrap2Select("Majors", 
           Major.makeMajorMap(student), 
           true,  
-          'help -> "Select one or more majors.")
+          'help -> "Select zero or more majors.")
    
         <!-- Submit -->
         <div class="control-group">

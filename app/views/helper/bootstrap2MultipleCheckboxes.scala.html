@@ -13,8 +13,9 @@
  *@
  
  @inputHelp = @{ args.toMap.get('help).getOrElse("") }
+ @inputError = @{ args.toMap.get('error).getOrElse("") }
 
-  <div class="control-group">
+  <div class="control-group @if(!inputError.isEmpty) {error}">
     <label class="control-label" for="@field">@field</label>
     <div class="controls">
       @for((checkboxName, isChecked) <- checkboxMap) {
