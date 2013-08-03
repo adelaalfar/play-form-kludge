@@ -1,0 +1,33 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>play-example-ui: @title</title>
+    <link rel="stylesheet" media="screen" href="@routes.WebJarAssets.at(WebJarAssets.locate("cerulean/bootstrap.min.css"))">
+    <link rel="stylesheet" media="screen" href="@routes.WebJarAssets.at(WebJarAssets.locate("default/bootstrap-responsive.min.css"))">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+ 
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="@routes.Application.getIndex()">play-form-kludge</a>
+      </div>
+    </div>
+  </div>
+
+    @content
+    <script src="@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))"></script>
+    <script src="@routes.WebJarAssets.at(WebJarAssets.locate("js/bootstrap.min.js"))"></script>
+    
+    <!-- Enable tooltips. Used primarily to validate that JQuery + Bootstrap JS are loaded. Remove this script if you don't want tooltips. -->
+    <script type="text/javascript">
+    jQuery(function ($) {
+        $("[rel='tooltip']").tooltip()
+    });
+    </script>
+  </body>
+</html>

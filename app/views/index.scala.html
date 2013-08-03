@@ -1,0 +1,69 @@
+@(student: Student) 
+
+@import helper._ 
+
+@main("Index") {
+<div class="container">
+  <div class="well">
+    @form(routes.Application.postIndex(), 'class -> "form-horizontal") {
+      <fieldset>
+        <!-- Header -->
+        <div id="legend">
+          <legend>Student Data</legend>
+        </div>
+        
+         <!-- Name -->
+        @bootstrap2InputText("Name", 
+          'type -> "text",
+          'value -> student.getName(),
+          'class -> "input-xlarge", 
+          'placeholder -> "My Name",
+          'help -> "Please enter your first and last name")
+          
+        <!-- Password -->
+        @bootstrap2InputText("Password",
+          'type -> "text",
+          'value -> student.getPassword(), 
+          'class -> "input-xlarge",
+          'type -> "password", 
+          'placeholder -> "Password",        
+          'help -> "Password should be chosen with care.")
+        
+         <!-- Hobbies -->
+         @bootstrap2MultipleCheckboxes("Hobbies", 
+           Hobby.makeHobbyMap(student), 
+           true,  
+           'help -> "Check all hobbies.")
+         
+        <!-- Grade Level -->
+        @bootstrap2MultipleRadioButtons("Level", 
+          GradeLevel.getNameList(), 
+          student.getLevel().getName(), 
+          'help -> "Select your grade level.")
+        
+        <!-- GPA -->
+        @bootstrap2Select("GPA", 
+          GradePointAverage.makeGPAMap(student), 
+          false,  
+          'help -> "Select your GPA.")
+        
+        <!-- Majors -->
+        @bootstrap2Select("Majors", 
+          Major.makeMajorMap(student), 
+          true,  
+          'help -> "Select one or more majors.")
+   
+        <!-- Submit -->
+        <div class="control-group">
+          <div class="controls">
+            <button class="btn btn-success">Submit</button>
+            <button class="btn cancel">Cancel</button>
+          </div>
+        </div>
+      </fieldset>
+    }
+  </div>
+</div>
+
+
+}
