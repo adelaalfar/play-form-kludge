@@ -35,25 +35,29 @@
          @bootstrap2MultipleCheckboxes("Hobbies", 
            Hobby.makeHobbyMap(student), 
            true,  
-           'help -> "Check zero or more hobbies.")
+           'help -> "Check zero or more hobbies.",
+           'error -> student.getError("Hobbies"))
          
         <!-- Grade Level -->
         @bootstrap2MultipleRadioButtons("Level", 
           GradeLevel.getNameList(), 
-          student.getLevel().getName(), 
-          'help -> "Select your grade level.")
+          if (student.getLevel() == null) { "" } else { student.getLevel().getName() }, 
+          'help -> "Select your grade level.",
+          'error -> student.getError("Level"))
         
         <!-- GPA -->
         @bootstrap2Select("GPA", 
           GradePointAverage.makeGPAMap(student), 
           false,  
-          'help -> "Select your GPA.")
+          'help -> "Select your GPA.",
+          'error -> student.getError("GPA"))
         
         <!-- Majors -->
         @bootstrap2Select("Majors", 
           Major.makeMajorMap(student), 
           true,  
-          'help -> "Select zero or more majors.")
+          'help -> "Select zero or more majors.",
+          'error -> student.getError("Majors"))
    
         <!-- Submit -->
         <div class="control-group">

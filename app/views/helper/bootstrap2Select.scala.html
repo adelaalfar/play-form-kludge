@@ -20,7 +20,8 @@
   <div class="control-group @if(!inputError.isEmpty) {error}">
     <label class="control-label" for="@field">@field</label>
     <div class="controls">
-      <select @if(isMultiple) {multiple="multiple"}>
+      <select id="@field" name="@field" @if(isMultiple) {multiple="multiple"}>
+        @if(!isMultiple) {<option class="blank" value="">Please select a value</option>}
         @for((optionName, isSelected) <- optionMap) {
           <option value="@optionName" @if(isSelected) {selected}>@optionName</option>
         }

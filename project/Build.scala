@@ -16,9 +16,7 @@ object ApplicationBuild extends Build {
     
     // Downgrade to JQuery 1.8.3 so that integration tests with HtmlUnit work.
     "org.webjars" % "bootstrap" % "2.3.2" exclude("org.webjars", "jquery"),
-    "org.webjars" % "jquery" % "1.8.3",
-      
-    "org.webjars" % "bootswatch" % "2.3.1"
+    "org.webjars" % "jquery" % "1.8.3"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(

@@ -13,8 +13,8 @@ import views.html.index;
  */
 public class Application extends Controller {
 
-  public static Result getIndex() {
-    Student student = new Student();
+  public static Result getIndex(long id) {
+    Student student = (id == 0) ? new Student() : Student.findStudent(id);
     return ok(index.render(student));
   }
   
