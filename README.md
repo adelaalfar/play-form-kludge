@@ -75,7 +75,7 @@ future newcomers to avoid the problems I encountered.
 **Issues for reimplementers**
 
   * It seems to me that one implicitFieldConstructor is not enough for this application, as the 
-    text, checkbox, and radio button controllers all require different syntax.  In my version,
+    text, checkbox, and radio button controllers all require different syntax in Twitter Bootstrap 2.  In my version,
     I abandoned 3 "implicit" field constructors for 4 "explicit" field constructors that directly
     code the Bootstrap syntax appropriate for the controller. I will be interested to see which
     approach is ultimately simpler and more readable.
@@ -83,8 +83,8 @@ future newcomers to avoid the problems I encountered.
   * I will be interested to see how binding of form elements to entities is accomplished in the
     case of embedded entities. In [Play for Java](http://www.manning.com/leroux/), the example code does a "two pass" binding: first the    
     framework binds the form fields to "bogus" entity instances, then the application code has to
-    do another pass to get valid entities.  My manual implementation avoids this problem.  Perhaps
-    there is a cleaner way.
+    do another pass to create valid entity instances.  My manual implementation avoids this problem.  Perhaps
+    there is a cleaner way using custom data binders?
     
   * The model entities all have private fields and explicit setters and getters.  I recognize that 
     the Play community thinks this is avoidable Java verbosity, but the implicit creation of getters and 
@@ -100,17 +100,16 @@ Playing with the application
 
 You can play with a live version of the application at: http://play-form-kludge.philipmjohnson.cloudbees.net
 
-To prefill the form with valid values, retrieve the following URLs:
+For examples of prefilling the form in a valid manner, retrieve the following URLs:
 
   * http://play-form-kludge.philipmjohnson.cloudbees.net?id=1
   * http://play-form-kludge.philipmjohnson.cloudbees.net?id=2
 
 Press submit, then look below the form to see the valid Student instance that was constructed.
 
-To prefill the form with invalid values, retrieve the following URLs:
+For an example of prefilling the form in an invalid manner, retrieve the following URL:
 
   * http://play-form-kludge.philipmjohnson.cloudbees.net?id=3
-  * http://play-form-kludge.philipmjohnson.cloudbees.net?id=4
 
 Press submit, then look below the form to see the resulting (invalid) Student instance.
     
