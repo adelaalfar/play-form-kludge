@@ -23,10 +23,13 @@ public class Application extends Controller {
     Map<String, String[]> formValues = request().body().asFormUrlEncoded();
     // Convert the form data into a Student model instance. 
     Student student = Student.makeInstance(formValues);
-    // Do something with the data.  Normally we'd save it to the database or whatever.
-    System.out.println("Student is: " + student);
-    // Now return something to the client. Let's just render and return the student instance.
-    // If there are errors, they will be rendered in the form. 
-    return ok(index.render(student));
+    if (student.hasErrors()) {
+      flash("error", "Invalid student: " + student.toString());
+      return ok(index.render(student));  
+    }
+    else {
+      flash("success", "Valid student: " + student.toString());
+      return badRequest(index.render(student));  
+    }
   }
 }

@@ -146,7 +146,7 @@ public class Student {
   }
 
   public String toString() {
-    return String.format("[Student %s, password: %s Hobbies: %s %s %s Majors: %s]", this.getName(),
+    return String.format("[Student name: '%s' Password: '%s' Hobbies: %s Grade Level: %s GPA: %s Majors: %s]", this.getName(),
         this.getPassword(), this.hobbies, this.level, this.gpa, this.getMajors());
   }
 
