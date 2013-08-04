@@ -91,6 +91,10 @@ future newcomers to avoid the problems I encountered.
     setters has [well documented problems](http://www.manning-sandbox.com/thread.jspa?messageID=143570&#143570).
     So please do not spend time improving this sample code by getting rid of the getters and setters.
 
+  * Why no tests?   It would have been cool to provide automated testing, but I was unsure of what
+    tests would run in a manner that could adequately assess the correctness of the reimplementation 
+    and also not require changes themselves as part of a reimplementation. So, I bailed.
+    
 Playing with the application
 ----------------------------
 
