@@ -34,8 +34,8 @@ or else throwing an internal exception.  In neither case did the framework provi
 what I did wrong or what to try next.
 
 Second, the Scala template code in views.helper is pretty opaque for Java Play developers
-with only elementary understanding of Scala.   In the "Play for Java" book now in early release
-at Manning, the authors claim that only a simple understanding of Scala (i.e. for loops, conditionals,
+with only elementary understanding of Scala.   In [Play for Java](http://www.manning.com/leroux/),
+the authors claim that only a simple understanding of Scala (i.e. for loops, conditionals,
 and variable substitution) is necessary.  I disagree.  The Scala template code is a nice demonstration
 of the language's capabilities for composability, but it comes at the cost of readability for 
 those who are not proficient in Scala.  
@@ -81,7 +81,7 @@ future newcomers to avoid the problems I encountered.
     approach is ultimately simpler and more readable.
     
   * I will be interested to see how binding of form elements to entities is accomplished in the
-    case of embedded entities. In Play for Java, the examples do a "two pass" binding: first the    
+    case of embedded entities. In [Play for Java](http://www.manning.com/leroux/), the example code does a "two pass" binding: first the    
     framework binds the form fields to "bogus" entity instances, then the application code has to
     do another pass to get valid entities.  My manual implementation avoids this problem.  Perhaps
     there is a cleaner way.
