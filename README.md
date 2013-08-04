@@ -23,7 +23,7 @@ form control using checkboxes that would correctly render and bind values. I bel
 failure of this first attempt is due to one of the following:
 
   * Form processing in Play is not documented well enough to cover this use case.
-  * Form processing in Play is not designed well enough to cover this use case. 
+  * Form processing in Play is not designed well enough to cover this use case (for Java Play developers). 
   
 As a newcomer to Play, I realize that this second hypothesis is somewhat presumptuous, but it is
 based upon the following two observations:
