@@ -43,16 +43,16 @@ those who are not proficient in Scala.
 **Second attempt: Manually implement helper classes, form binding/unbinding, and validation**
 
 After coming to the conclusion that I might never succeed in implementing my requirements using the built-in Play 
-facilities would be due mostly to chance, I decided to abandon the built-in features of Play
+facilities, I decided to abandon the built-in features of Play
 for form processing and code it all manually.  This turned out to be straightforward and
 I had a working system within a couple of days.  This code is available in the master
 branch of this repo.  
 
-In my opinion, the strengths of the current (manual) implementation are:  (1) The views.helper template code is 
+In my opinion, the strengths of the current (manual) implementation are:  (1) The [views.helper template code](https://github.com/philipmjohnson/play-form-kludge/tree/master/app/views/helper) is 
 trivially simple to read, debug, and extend for Scala novices; (2) The approach failed gracefully 
 during development: when I coded a feature incorrectly, it was always easy to debug.
 
-The weaknesses are: (1) The binding/validation code (in Student.makeInstance) is a hot mess, and does
+The weaknesses are: (1) The binding/validation code (in [Student.makeInstance](https://github.com/philipmjohnson/play-form-kludge/blob/master/app/models/Student.java#L40-119)) is a hot mess, and does
 not use annotation-based validation which is clearly superior; (2) doing the
 form binding and unbinding by hand just seems lame for a framework as elegant as Play; and 
 (3) the built-in code seems like it provides additional functionality (such as the "lang" property).
@@ -105,14 +105,14 @@ To prefill the form with valid values, retrieve the following URLs:
   * http://play-form-kludge.philipmjohnson.cloudbees.net?id=1
   * http://play-form-kludge.philipmjohnson.cloudbees.net?id=2
 
-Press submit, then look at the bottom of the page to see the Student instance that was constructed.
+Press submit, then look below the form to see the valid Student instance that was constructed.
 
 To prefill the form with invalid values, retrieve the following URLs:
 
   * http://play-form-kludge.philipmjohnson.cloudbees.net?id=3
   * http://play-form-kludge.philipmjohnson.cloudbees.net?id=4
 
-Press submit, then see the bottom of the page for the resulting (invalid) Student instance.
+Press submit, then look below the form to see the resulting (invalid) Student instance.
     
 
 
