@@ -1,4 +1,4 @@
-![screenshot](https://raw.github.com/philipmjohnson/play-form-kludge/master/doc/play-form-kludge.png)
+![screenshot](https://raw.github.com/philipmjohnson/play-form-kludge/master/doc/play-form-kludge-homepage.png)
 
 play-form-kludge
 ================
